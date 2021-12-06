@@ -6,7 +6,7 @@ Install dependencies:
 
 ```shell
 npm install
-```.
+```
 
 ## Running
 
