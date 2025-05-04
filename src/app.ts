@@ -1,7 +1,8 @@
 import express from 'express';
 import { errorHandler, mountRoutes, Parser } from 'core-lib';
 import morgan from 'morgan';
-import { join } from 'path'
+import { join } from 'path';
+
 
 
 class App {
@@ -11,14 +12,11 @@ class App {
 
     constructor() {
 
-        (async () => {
-            this.app = express(),
-                await this.middleware()
-        })()
+        this.app = express();
 
     }
 
-    private async middleware() {
+    async middleware() {
         //request logger
         this.app.use(morgan('combined'));
         //parse urlencoded
@@ -32,7 +30,7 @@ class App {
     }
 }
 
-export default new App().app
+export default new App()
 
 
 

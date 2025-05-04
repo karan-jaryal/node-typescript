@@ -1,27 +1,28 @@
-
+import {createRepository,UserRepository} from './user.repository'
 //service
 
 export class UserService {
 
     public config: any;
     public dependencies: any;
-    public userRepository: any;
+    public repository: UserRepository;
 
     constructor(config: any, dependecies: any) {
         this.config = config;
         this.dependencies = dependecies;
-        this.userRepository = dependecies.repository
+        this.repository = dependecies.repository
     }
 
    public async getUser(userModel:any) {
-
-        console.log("In Service");
-        return {"message":"Inservice"}
+       const records = await this.repository.find()
+        return records;
     }
 }
 
 export const createUserService = () => {
-
-    return new UserService({},{});
+const dependecies ={
+    repository : createRepository()
+}
+    return new UserService({},dependecies);
 
 }

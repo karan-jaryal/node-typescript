@@ -13,7 +13,6 @@ class UserRoutes {
     }
 
     async get(req: Request, res: Response){
-        console.log(this.dependencies.userController)
        return await this.dependencies.userController.getUser();
     }
 }
